@@ -2,9 +2,7 @@
 title: API CRUD Documentation
 
 language_tabs:
-  - shell
-  - ruby
-  - python
+  - node.JS
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
