@@ -22,82 +22,39 @@ We have language bindings in Shell, Ruby, and Python! You can view code examples
 
 This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
-# Authentication
 
-> To authorize, use this code:
+# Contacts
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
+## Get All Contacts
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl -X GET -H "Content-type: application/json" -H "Accept: application/json"  "http://granitberisha.herokuapp.com/api/db
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Isis",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "success": "Read data with success",
+  "data": [
+    {
+      "id": 3,
+      "name": "Granit",
+      "lastname": "berisha",
+      "address": "Kline-Kosovo",
+      "phonenumber": "049666456",
+      "email": "niti@niti.com"
+    },
+    {
+      "id": 1,
+      "name": "Granitiiii",
+      "lastname": "berisha",
+      "address": "Kline-Kosovo",
+      "phonenumber": "049666456",
+      "email": "niti@niti.com"
+    }
+  ]
+}
 ```
 
 This endpoint retrieves all kittens.
@@ -117,7 +74,7 @@ available | true | If set to false, the result will include kittens that have al
 Remember — a happy kitten is an authenticated kitten!
 </aside>
 
-## Get a Specific Kitten
+## Get a Specific Contact
 
 ```ruby
 require 'kittn'
