@@ -1,5 +1,5 @@
 ---
-title: API CRUD Documentation
+title: Contact API CRUD Documentation
 
 language_tabs:
   - nodeJS
@@ -28,7 +28,7 @@ This example API documentation page was created with [Slate](http://github.com/t
 ## Get All Contacts
 
 ```shell
-curl -X GET -H "Content-type: application/json" -H "Accept: application/json"  "http://granitberisha.herokuapp.com/api/db
+curl -X GET -H "Content-type: application/json" -H "Accept: application/json"  "http://granitberisha.herokuapp.com/api/contact
 ```
 
 > The above command returns JSON structured like this:
@@ -57,67 +57,98 @@ curl -X GET -H "Content-type: application/json" -H "Accept: application/json"  "
 }
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all contacts.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET http://granitberisha.herokuapp.com/api/contact`
 
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember — you can use other application for GET like Postman
 </aside>
 
 ## Get a Specific Contact
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl -X GET -H "Content-type: application/json" -H "Accept: application/json"  "http://granitberisha.herokuapp.com/api/contact/3"
+  
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Isis",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "success": "Read data with id",
+  "data": [
+    {
+      "id": 3,
+      "name": "Granit",
+      "lastname": "berisha",
+      "address": "Kline-Kosovo",
+      "phonenumber": "049666456",
+      "email": "niti@niti.com"
+    }
+  ]
 }
 ```
 
 This endpoint retrieves a specific kitten.
 
-<aside class="warning">If you're not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside>
+<aside class="notice">If you're not using an ID thats is registered in Database, will return Success but with no data on it </aside>
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET http://granitberisha.herokuapp.com/api/contact/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+ID | The ID of the contact to retrieve
+
+
+
+## Update a Specific Contact
+
+
+
+```shell
+curl -X UPDATE -H "Content-type: application/json" -H "Accept: application/json"  "http://granitberisha.herokuapp.com/api/contact/3"
+  
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "success": "Read data with id",
+  "data": [
+    {
+      "id": 3,
+      "name": "Granit",
+      "lastname": "berisha",
+      "address": "Kline-Kosovo",
+      "phonenumber": "049666456",
+      "email": "niti@niti.com"
+    }
+  ]
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+<aside class="notice">If you're not using an ID thats is registered in Database, will return Success but with no data on it </aside>
+
+### HTTP Request
+
+`UPDATE http://granitberisha.herokuapp.com/api/contact/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the contact to retrieve
 
