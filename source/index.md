@@ -76,7 +76,7 @@ This endpoint retrieves all contacts.
 
 
 <aside class="success">
-Remember — you can use other application for GET like Postman
+Remember — this method will return any contact in database 
 </aside>
 
 ## Get a Specific Contact
@@ -119,7 +119,7 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the contact to retrieve
 
-<aside class="notice">If you're not using an ID thats is registered in Database, will return Success but with no data on it </aside>
+<aside class="notice">If you're not using an ID thats is registered in Database, will return error </aside>
 
 ## Create a Contact
 
@@ -183,14 +183,14 @@ This endpoint updates a specific contact.
 
 ### HTTP Request
 
-`UPDATE http://granitberisha.herokuapp.com/api/contact/`
+`PUT http://granitberisha.herokuapp.com/api/contact/`
 
 ### URL Parameters
 
 Parameter | Requirement | Description
 --------- | ------- | -----------
 ID | true | The ID of the contact to update 
-name | true | The new Name that you like to change
+name | false | The new Name that you like to change
 last-name | false | The new Last Name that you like to change
 address | false | The new Address that you like to change
 email | false | The new Email that you like to change
@@ -200,7 +200,7 @@ phonenumber3 | false | The new Phone number that you like to change
 phonenumber4 | false | The new Phone number that you like to change
 phonenumber5 | false | The new Phone number that you like to change
 
-<aside class="notice">If you're not using an ID thats is registered in Database, will return error </aside>
+<aside class="notice">If you're not using an ID that's is registered in Database, will return error </aside>
 
 
 ## Delete a Specific Contact
