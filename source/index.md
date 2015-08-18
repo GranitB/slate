@@ -5,8 +5,8 @@ language_tabs:
   - nodeJS
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='https://github.com/GranitB/slate'>Source code for API Documentation</a>
+  - <a href='https://github.com/GranitB/API'>Source Code for Contact API</a>
 
 includes:
   - errors
@@ -16,11 +16,14 @@ search: true
 
 # Introduction
 
-Welcome to the NodeJS CRUD API! You can use our API to access CRUD API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the NodeJS CRUD API! You can use our API to access CRUD API endpoints, which you can get information for Contacts in our database.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+We have make validation, if you type and invalid data or want to edit delete you will always have confirmation like updated succesully, delete sucessfully
+or invalid data we hoppe you will love our simple application if you have any issue please contact us we're here to help you .
 
-This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+It a simple application , you can create contact , get , update and delete contact from the database. All these in Json format . You can view code examples in the dark area to the right with the SHELL commands.
+
+This example API documentation page was created by Granit Berisha for links in GIT you can find in the footer link. 
 
 
 # Contacts
@@ -35,23 +38,31 @@ curl -X GET -H "Content-type: application/json" -H "Accept: application/json"  "
 
 ```json
 {
-  "success": "Read data with success",
+  "success": "Database Readed successfuly.",
   "data": [
+    {
+      "id": 1,
+      "name": "NewName",
+      "lastname": "Berisha",
+      "address": "NEwAddress",
+      "email": "granit@hotelkeyapp.com",
+      "phonenumber1": null,
+      "phonenumber2": "111111",
+      "phonenumber3": null,
+      "phonenumber4": null,
+      "phonenumber5": null
+    },
     {
       "id": 3,
       "name": "Granit",
-      "lastname": "berisha",
-      "address": "Kline-Kosovo",
-      "phonenumber": "049666456",
-      "email": "niti@niti.com"
-    },
-    {
-      "id": 1,
-      "name": "Granitiiii",
-      "lastname": "berisha",
-      "address": "Kline-Kosovo",
-      "phonenumber": "049666456",
-      "email": "niti@niti.com"
+      "lastname": "Berisha",
+      "address": "Kline",
+      "email": "granit@hotelkeyapp.com",
+      "phonenumber1": "049666456",
+      "phonenumber2": "044444444",
+      "phonenumber3": null,
+      "phonenumber4": null,
+      "phonenumber5": null
     }
   ]
 }
@@ -74,7 +85,6 @@ Remember — you can use other application for GET like Postman
 
 ```shell
 curl -X GET -H "Content-type: application/json" -H "Accept: application/json"  "http://granitberisha.herokuapp.com/api/contact/3"
-  
 ```
 
 > The above command returns JSON structured like this:
@@ -95,9 +105,9 @@ curl -X GET -H "Content-type: application/json" -H "Accept: application/json"  "
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific contact.
 
-<aside class="notice">If you're not using an ID thats is registered in Database, will return Success but with no data on it </aside>
+
 
 ### HTTP Request
 
@@ -109,46 +119,115 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the contact to retrieve
 
+<aside class="notice">If you're not using an ID thats is registered in Database, will return Success but with no data on it </aside>
 
-
-## Update a Specific Contact
+## Create a Contact
 
 
 
 ```shell
-curl -X UPDATE -H "Content-type: application/json" -H "Accept: application/json"  "http://granitberisha.herokuapp.com/api/contact/3"
-  
+curl -i -X POST -H "Content-Type: application/json" -d "{""name"":""granit"",""lastname"":""berisha"",""address"":""kline"",""email"":""granit@herokuapp.com"",""phonenumber1"":""049666456""}" "https://granitberisha.herokuapp.com/api/contact"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "success": "Read data with id",
-  "data": [
-    {
-      "id": 3,
-      "name": "Granit",
-      "lastname": "berisha",
-      "address": "Kline-Kosovo",
-      "phonenumber": "049666456",
-      "email": "niti@niti.com"
-    }
-  ]
+  "success": "Contact inserted successfuly into database."
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint updates a specific contact.
 
-<aside class="notice">If you're not using an ID thats is registered in Database, will return Success but with no data on it </aside>
 
 ### HTTP Request
 
-`UPDATE http://granitberisha.herokuapp.com/api/contact/<ID>`
+`POST http://granitberisha.herokuapp.com/api/contact/`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the contact to retrieve
+Parameter | Requirement | Description
+--------- | ------- | -----------
+name | true | The Name that you like add
+last-name | false | The Last Name that you like to add 
+address | false | The Address that you like to add
+email | false | The new Email that you like to add
+phonenumber1 | false | The Phone number that you like add
+phonenumber2 | false | The Phone number that you like add
+phonenumber3 | false | The Phone number that you like add
+phonenumber4 | false | The Phone number that you like add
+phonenumber5 | false | The Phone number that you like add
 
+
+<aside class="notice">If you're not using an ID thats is registered in Database, will return error </aside>
+
+
+## Update a Specific Contact
+
+
+```shell
+curl -i -X PUT -H "Content-Type: application/json" -d "{""id"":""1"",name"":""granit"",""lastname"":""berisha"",""address"":""kline"",""email"":""granit@herokuapp.com"",""phonenumber1"":""049666456""}" "https://granitberisha.herokuapp.com/api/contact"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "success": "Contact updated successfully in the database."
+}
+```
+
+This endpoint updates a specific contact.
+
+
+
+### HTTP Request
+
+`UPDATE http://granitberisha.herokuapp.com/api/contact/`
+
+### URL Parameters
+
+Parameter | Requirement | Description
+--------- | ------- | -----------
+ID | true | The ID of the contact to update 
+name | true | The new Name that you like to change
+last-name | false | The new Last Name that you like to change
+address | false | The new Address that you like to change
+email | false | The new Email that you like to change
+phonenumber1 | false | The new Phone number that you like to change
+phonenumber2 | false | The new Phone number that you like to change
+phonenumber3 | false | The new Phone number that you like to change
+phonenumber4 | false | The new Phone number that you like to change
+phonenumber5 | false | The new Phone number that you like to change
+
+<aside class="notice">If you're not using an ID thats is registered in Database, will return error </aside>
+
+
+## Delete a Specific Contact
+```shell
+curl -i -X DELETE -H "Content-Type: application/json" -d "{""id"":""1""}" "https://granitberisha.herokuapp.com/api/contact"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "success": "Contact successfuly deleted from the database."
+}
+```
+
+This endpoint delete a specific contact.
+
+<aside class="notice">If you're not using an ID thats is registered in Database, will return error </aside>
+
+### HTTP Request
+
+`DELETE http://granitberisha.herokuapp.com/api/contact/`
+
+### URL Parameters
+
+Parameter | Requirement | Description
+--------- | ------- | -----------
+ID | true | The ID of the contact to delete
+
+<aside class="warning">If you delete a Contact it will permanently deleted you cant restore </aside>
