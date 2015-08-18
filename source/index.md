@@ -23,7 +23,10 @@ or invalid data we hoppe you will love our simple application if you have any is
 
 It a simple application , you can create contact , get , update and delete contact from the database. All these in Json format . You can view code examples in the dark area to the right with the SHELL commands.
 
+For contacts i have used this data to be stored : Name , LastName , Email , Address , and five Phonenumbers 
+
 This example API documentation page was created by Granit Berisha for links in GIT you can find in the footer link. 
+
 
 
 # Contacts
